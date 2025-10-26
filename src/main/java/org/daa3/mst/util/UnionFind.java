@@ -3,7 +3,7 @@ package org.daa3.mst.util;
 public class UnionFind {
     private final int[] parent;
     private final int[] rank;
-    public long ops = 0; // счётчик операций для внешнего подсчёта (можно читать)
+    public long ops = 0;
 
     public UnionFind(int n) {
         parent = new int[n];

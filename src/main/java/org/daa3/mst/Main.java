@@ -122,7 +122,7 @@ public class Main {
                         row.get("kruskal_avg_time_ms"));
             }
 
-            System.out.println("\n✅ Все результаты сохранены в папку 'results'.");
+            System.out.println("\nВсе результаты сохранены в папку 'results'.");
 
         } catch (Exception e) {
             e.printStackTrace();

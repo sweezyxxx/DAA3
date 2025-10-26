@@ -1,0 +1,21 @@
+{
+  "performance" : [ {
+    "graph_id" : 1,
+    "tag" : "small",
+    "vertices" : 4,
+    "edges" : 5,
+    "prim_avg_time_ms" : 0.008,
+    "prim_avg_operations" : 15,
+    "kruskal_avg_time_ms" : 0.002,
+    "kruskal_avg_operations" : 23
+  }, {
+    "graph_id" : 2,
+    "tag" : "small",
+    "vertices" : 6,
+    "edges" : 8,
+    "prim_avg_time_ms" : 0.022,
+    "prim_avg_operations" : 22,
+    "kruskal_avg_time_ms" : 0.003,
+    "kruskal_avg_operations" : 41
+  } ]
+}
