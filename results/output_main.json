@@ -19,7 +19,7 @@
       } ],
       "total_cost" : 11,
       "operations_count" : 15,
-      "execution_time_ms" : 0.041
+      "execution_time_ms" : 0.045
     },
     "kruskal" : {
       "mst_edges" : [ {
@@ -37,7 +37,7 @@
       } ],
       "total_cost" : 11,
       "operations_count" : 23,
-      "execution_time_ms" : 0.018
+      "execution_time_ms" : 0.031
     }
   }, {
     "graph_id" : 2,
@@ -83,7 +83,7 @@
       } ],
       "total_cost" : 46,
       "operations_count" : 35,
-      "execution_time_ms" : 0.018
+      "execution_time_ms" : 0.054
     },
     "kruskal" : {
       "mst_edges" : [ {
@@ -211,7 +211,7 @@
       } ],
       "total_cost" : 114,
       "operations_count" : 61,
-      "execution_time_ms" : 0.033
+      "execution_time_ms" : 0.028
     },
     "kruskal" : {
       "mst_edges" : [ {
@@ -293,7 +293,7 @@
       } ],
       "total_cost" : 114,
       "operations_count" : 170,
-      "execution_time_ms" : 0.008
+      "execution_time_ms" : 0.009
     }
   } ]
 }

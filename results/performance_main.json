@@ -1,30 +1,36 @@
 {
   "performance" : [ {
+    "dataset" : "main",
     "graph_id" : 1,
-    "tag" : "main",
     "vertices" : 4,
     "edges" : 5,
-    "prim_avg_time_ms" : 0.009,
-    "prim_avg_operations" : 15,
+    "prim_cost" : 11,
+    "kruskal_cost" : 11,
+    "prim_avg_time_ms" : 0.012,
     "kruskal_avg_time_ms" : 0.002,
+    "prim_avg_operations" : 15,
     "kruskal_avg_operations" : 23
   }, {
+    "dataset" : "main",
     "graph_id" : 2,
-    "tag" : "main",
     "vertices" : 10,
     "edges" : 12,
-    "prim_avg_time_ms" : 0.018,
-    "prim_avg_operations" : 35,
+    "prim_cost" : 46,
+    "kruskal_cost" : 46,
+    "prim_avg_time_ms" : 0.016,
     "kruskal_avg_time_ms" : 0.004,
+    "prim_avg_operations" : 35,
     "kruskal_avg_operations" : 77
   }, {
+    "dataset" : "main",
     "graph_id" : 3,
-    "tag" : "main",
     "vertices" : 20,
     "edges" : 21,
-    "prim_avg_time_ms" : 0.026,
-    "prim_avg_operations" : 61,
+    "prim_cost" : 114,
+    "kruskal_cost" : 114,
+    "prim_avg_time_ms" : 0.022,
     "kruskal_avg_time_ms" : 0.009,
+    "prim_avg_operations" : 61,
     "kruskal_avg_operations" : 170
   } ]
 }

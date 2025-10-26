@@ -1,0 +1,98 @@
+=== Dataset: main ===
+Graph ID     | 1
+Vertices     | 4
+Edges        | 5
+Prim Cost    | 11
+Kruskal Cost | 11
+Avg Time P   | 0.012 ms
+Avg Time K   | 0.002 ms
+Ops P        | 15
+Ops K        | 23
+------------------------
+Graph ID     | 2
+Vertices     | 10
+Edges        | 12
+Prim Cost    | 46
+Kruskal Cost | 46
+Avg Time P   | 0.016 ms
+Avg Time K   | 0.004 ms
+Ops P        | 35
+Ops K        | 77
+------------------------
+Graph ID     | 3
+Vertices     | 20
+Edges        | 21
+Prim Cost    | 114
+Kruskal Cost | 114
+Avg Time P   | 0.022 ms
+Avg Time K   | 0.009 ms
+Ops P        | 61
+Ops K        | 170
+------------------------
+
+=== Dataset: small ===
+Graph ID     | 1
+Vertices     | 4
+Edges        | 5
+Prim Cost    | 11
+Kruskal Cost | 11
+Avg Time P   | 0.013 ms
+Avg Time K   | 0.003 ms
+Ops P        | 15
+Ops K        | 23
+------------------------
+Graph ID     | 2
+Vertices     | 6
+Edges        | 8
+Prim Cost    | 20
+Kruskal Cost | 20
+Avg Time P   | 0.016 ms
+Avg Time K   | 0.005 ms
+Ops P        | 22
+Ops K        | 41
+------------------------
+
+=== Dataset: medium ===
+Graph ID     | 1
+Vertices     | 10
+Edges        | 12
+Prim Cost    | 46
+Kruskal Cost | 46
+Avg Time P   | 0.013 ms
+Avg Time K   | 0.003 ms
+Ops P        | 35
+Ops K        | 77
+------------------------
+Graph ID     | 2
+Vertices     | 12
+Edges        | 17
+Prim Cost    | 52
+Kruskal Cost | 52
+Avg Time P   | 0.015 ms
+Avg Time K   | 0.004 ms
+Ops P        | 49
+Ops K        | 99
+------------------------
+
+=== Dataset: large ===
+Graph ID     | 1
+Vertices     | 20
+Edges        | 25
+Prim Cost    | 114
+Kruskal Cost | 114
+Avg Time P   | 0.023 ms
+Avg Time K   | 0.005 ms
+Ops P        | 71
+Ops K        | 175
+------------------------
+Graph ID     | 2
+Vertices     | 25
+Edges        | 30
+Prim Cost    | 150
+Kruskal Cost | 150
+Avg Time P   | 0.024 ms
+Avg Time K   | 0.008 ms
+Ops P        | 88
+Ops K        | 219
+------------------------
+

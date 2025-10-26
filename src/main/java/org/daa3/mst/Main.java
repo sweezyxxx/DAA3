@@ -8,6 +8,8 @@ import org.daa3.mst.model.InputData;
 import org.daa3.mst.model.MSTResult;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.*;
 
 public class Main {
@@ -24,19 +26,31 @@ public class Main {
 
             File resultsDir = new File("results");
             if (!resultsDir.exists()) {
-                resultsDir.mkdir();
+                boolean ok = resultsDir.mkdir();
+                if (!ok) {
+                    System.out.println("Warning: could not create results directory");
+                }
             }
 
             ObjectMapper mapper = new ObjectMapper();
-            List<Object> globalPerformanceTable = new ArrayList<>();
+            List<Map<String, Object>> globalPerformance = new ArrayList<>();
+            StringBuilder summaryBuilder = new StringBuilder();
 
             for (String[] set : inputSets) {
                 String inputPath = set[0];
                 String tag = set[1];
 
-                InputData input = mapper.readValue(new File(inputPath), InputData.class);
+                File f = new File(inputPath);
+                if (!f.exists()) {
+                    System.out.printf("Skipping '%s' (file not found)%n", inputPath);
+                    continue;
+                }
+
+                InputData input = mapper.readValue(f, InputData.class);
                 List<Object> detailedResults = new ArrayList<>();
                 List<Object> performanceResults = new ArrayList<>();
+
+                summaryBuilder.append("=== Dataset: ").append(tag).append(" ===\n");
 
                 for (Graph g : input.graphs) {
                     MSTResult primOnce = PrimMST.compute(g);
@@ -63,8 +77,10 @@ public class Main {
                     rec.put("kruskal", kmap);
                     detailedResults.add(rec);
 
-                    double primTotalTime = 0, kruskalTotalTime = 0;
-                    long primTotalOps = 0, kruskalTotalOps = 0;
+                    double primTotalTime = 0;
+                    double kruskalTotalTime = 0;
+                    long primTotalOps = 0;
+                    long kruskalTotalOps = 0;
 
                     for (int i = 0; i < RUNS; i++) {
                         MSTResult p = PrimMST.compute(g);
@@ -83,17 +99,30 @@ public class Main {
                     long kruskalAvgOps = kruskalTotalOps / RUNS;
 
                     Map<String, Object> perfEntry = new LinkedHashMap<>();
+                    perfEntry.put("dataset", tag);
                     perfEntry.put("graph_id", g.id);
-                    perfEntry.put("tag", tag);
                     perfEntry.put("vertices", g.nodes.size());
                     perfEntry.put("edges", g.edges.size());
+                    perfEntry.put("prim_cost", primOnce.totalCost);
+                    perfEntry.put("kruskal_cost", kruskalOnce.totalCost);
                     perfEntry.put("prim_avg_time_ms", primAvgTime);
-                    perfEntry.put("prim_avg_operations", primAvgOps);
                     perfEntry.put("kruskal_avg_time_ms", kruskalAvgTime);
+                    perfEntry.put("prim_avg_operations", primAvgOps);
                     perfEntry.put("kruskal_avg_operations", kruskalAvgOps);
-                    performanceResults.add(perfEntry);
 
-                    globalPerformanceTable.add(perfEntry);
+                    performanceResults.add(perfEntry);
+                    globalPerformance.add(perfEntry);
+
+                    summaryBuilder.append(String.format("Graph ID     | %s%n", g.id));
+                    summaryBuilder.append(String.format("Vertices     | %d%n", g.nodes.size()));
+                    summaryBuilder.append(String.format("Edges        | %d%n", g.edges.size()));
+                    summaryBuilder.append(String.format("Prim Cost    | %d%n", primOnce.totalCost));
+                    summaryBuilder.append(String.format("Kruskal Cost | %d%n", kruskalOnce.totalCost));
+                    summaryBuilder.append(String.format("Avg Time P   | %s ms%n", primAvgTime));
+                    summaryBuilder.append(String.format("Avg Time K   | %s ms%n", kruskalAvgTime));
+                    summaryBuilder.append(String.format("Ops P        | %d%n", primAvgOps));
+                    summaryBuilder.append(String.format("Ops K        | %d%n", kruskalAvgOps));
+                    summaryBuilder.append("------------------------\n");
                 }
 
                 Map<String, Object> output = new LinkedHashMap<>();
@@ -101,31 +130,40 @@ public class Main {
                 mapper.writerWithDefaultPrettyPrinter()
                         .writeValue(new File("results/output_" + tag + ".json"), output);
 
-                Map<String, Object> performanceReport = new LinkedHashMap<>();
-                performanceReport.put("performance", performanceResults);
+                Map<String, Object> perf = new LinkedHashMap<>();
+                perf.put("performance", performanceResults);
                 mapper.writerWithDefaultPrettyPrinter()
-                        .writeValue(new File("results/performance_" + tag + ".json"), performanceReport);
+                        .writeValue(new File("results/performance_" + tag + ".json"), perf);
+
+                summaryBuilder.append("\n");
             }
 
-            System.out.printf("%-10s %-10s %-10s %-10s %-20s %-20s%n",
-                    "Tag", "GraphID", "V", "E", "Prim Avg Time", "Kruskal Avg Time");
-            System.out.println("----------------------------------------------------------------------------");
+            File summaryFile = new File("results/summary.txt");
+            try (PrintWriter pw = new PrintWriter(new FileWriter(summaryFile))) {
+                pw.print(summaryBuilder.toString());
+            }
 
-            for (Object obj : globalPerformanceTable) {
-                Map<?, ?> row = (Map<?, ?>) obj;
-                System.out.printf("%-10s %-10s %-10s %-10s %-20s %-20s%n",
-                        row.get("tag"),
+            System.out.println("\nSummary (results/summary.txt) created. Quick view:");
+            System.out.printf("%-10s %-10s %-6s %-6s %-12s %-12s %-10s %-10s%n",
+                    "Dataset", "GraphID", "V", "E", "PrimCost", "KruskCost", "PrimTime", "KruskTime");
+            System.out.println("---------------------------------------------------------------------------------");
+            for (Map<String, Object> row : globalPerformance) {
+                System.out.printf("%-10s %-10s %-6s %-6s %-12s %-12s %-10s %-10s%n",
+                        row.get("dataset"),
                         row.get("graph_id"),
                         row.get("vertices"),
                         row.get("edges"),
+                        row.get("prim_cost"),
+                        row.get("kruskal_cost"),
                         row.get("prim_avg_time_ms"),
                         row.get("kruskal_avg_time_ms"));
             }
 
-            System.out.println("\nВсе результаты сохранены в папку 'results'.");
+            System.out.println("\nAll results saved to 'results/' directory (output_*, performance_*, summary.txt).");
 
         } catch (Exception e) {
             e.printStackTrace();
+            System.exit(1);
         }
     }
 

@@ -1,21 +1,25 @@
 {
   "performance" : [ {
+    "dataset" : "large",
     "graph_id" : 1,
-    "tag" : "large",
     "vertices" : 20,
     "edges" : 25,
-    "prim_avg_time_ms" : 0.033,
+    "prim_cost" : 114,
+    "kruskal_cost" : 114,
+    "prim_avg_time_ms" : 0.023,
+    "kruskal_avg_time_ms" : 0.005,
     "prim_avg_operations" : 71,
-    "kruskal_avg_time_ms" : 0.008,
     "kruskal_avg_operations" : 175
   }, {
+    "dataset" : "large",
     "graph_id" : 2,
-    "tag" : "large",
     "vertices" : 25,
     "edges" : 30,
-    "prim_avg_time_ms" : 0.036,
+    "prim_cost" : 150,
+    "kruskal_cost" : 150,
+    "prim_avg_time_ms" : 0.024,
+    "kruskal_avg_time_ms" : 0.008,
     "prim_avg_operations" : 88,
-    "kruskal_avg_time_ms" : 0.01,
     "kruskal_avg_operations" : 219
   } ]
 }
