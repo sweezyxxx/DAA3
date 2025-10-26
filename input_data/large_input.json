@@ -1,0 +1,71 @@
+{
+  "graphs": [
+    {
+      "id": 1,
+      "nodes": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T"],
+      "edges": [
+        {"from": "A","to": "B","weight": 4},
+        {"from": "A","to": "C","weight": 7},
+        {"from": "B","to": "D","weight": 3},
+        {"from": "C","to": "E","weight": 8},
+        {"from": "D","to": "F","weight": 5},
+        {"from": "E","to": "G","weight": 6},
+        {"from": "F","to": "H","weight": 2},
+        {"from": "G","to": "I","weight": 9},
+        {"from": "H","to": "J","weight": 4},
+        {"from": "I","to": "K","weight": 5},
+        {"from": "J","to": "L","weight": 6},
+        {"from": "K","to": "M","weight": 7},
+        {"from": "L","to": "N","weight": 3},
+        {"from": "M","to": "O","weight": 10},
+        {"from": "N","to": "P","weight": 4},
+        {"from": "O","to": "Q","weight": 8},
+        {"from": "P","to": "R","weight": 12},
+        {"from": "Q","to": "S","weight": 6},
+        {"from": "R","to": "T","weight": 9},
+        {"from": "C","to": "F","weight": 11},
+        {"from": "G","to": "J","weight": 13},
+        {"from": "K","to": "N","weight": 14},
+        {"from": "O","to": "R","weight": 15},
+        {"from": "D","to": "E","weight": 6},
+        {"from": "H","to": "I","weight": 7}
+      ]
+    },
+    {
+      "id": 2,
+      "nodes": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y"],
+      "edges": [
+        {"from": "A","to": "B","weight": 3},
+        {"from": "A","to": "C","weight": 5},
+        {"from": "A","to": "D","weight": 7},
+        {"from": "B","to": "C","weight": 2},
+        {"from": "C","to": "E","weight": 6},
+        {"from": "D","to": "F","weight": 4},
+        {"from": "E","to": "G","weight": 5},
+        {"from": "F","to": "H","weight": 8},
+        {"from": "G","to": "I","weight": 9},
+        {"from": "H","to": "J","weight": 7},
+        {"from": "I","to": "K","weight": 5},
+        {"from": "J","to": "L","weight": 6},
+        {"from": "K","to": "M","weight": 4},
+        {"from": "L","to": "N","weight": 3},
+        {"from": "M","to": "O","weight": 8},
+        {"from": "N","to": "P","weight": 9},
+        {"from": "O","to": "Q","weight": 6},
+        {"from": "P","to": "R","weight": 10},
+        {"from": "Q","to": "S","weight": 7},
+        {"from": "R","to": "T","weight": 5},
+        {"from": "S","to": "U","weight": 11},
+        {"from": "T","to": "V","weight": 3},
+        {"from": "U","to": "W","weight": 12},
+        {"from": "V","to": "X","weight": 4},
+        {"from": "W","to": "Y","weight": 6},
+        {"from": "D","to": "G","weight": 10},
+        {"from": "H","to": "K","weight": 11},
+        {"from": "L","to": "O","weight": 13},
+        {"from": "P","to": "S","weight": 14},
+        {"from": "T","to": "W","weight": 15}
+      ]
+    }
+  ]
+}
