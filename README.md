@@ -14,7 +14,7 @@ All datasets are stored in JSON format and processed automatically.
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 daa3/
 └── src/main/java/org/daa3/mst/
@@ -31,29 +31,29 @@ daa3/
 
 ---
 
-## ▶️ How to Run
+##  How to Run
 
 1. Open the project in **IntelliJ IDEA**
 2. Make sure Maven dependencies are loaded
 3. Open `Main.java`
 4. Click **Run ▶**
 
-✅ After execution, results will be generated automatically.
+ After execution, results will be generated automatically.
 
 ---
 
-## 📁 Generated Results (in `/results/`)
+##  Generated Results (in `/results/`)
 
 | File | Description |
 |------|-------------|
 | `output_main.json` | One-time MST result for each graph (Prim + Kruskal) |
 | `performance_main.json` | Performance statistics (repeated average runs) |
-| `summary.txt` | **Readable final comparison in key/value format** ✅ |
+| `summary.txt` | **Readable final comparison in key/value format**  |
 | Same files exist for `small`, `medium`, and `large` datasets |
 
 ---
 
-## 📊 Summary Example (from summary.txt)
+##  Summary Example (from summary.txt)
 
 === Dataset: small ===
 Graph ID | 1
@@ -68,7 +68,7 @@ Ops K | 23
 
 ---
 
-## 📘 Full Report
+##  Full Report
 
 The full analytical report is available in `report.md`.
 
@@ -81,7 +81,7 @@ It includes:
 
 ---
 
-## 📎 Technologies Used
+##  Technologies Used
 
 | Tool | Purpose |
 |------|---------|
@@ -92,10 +92,10 @@ It includes:
 
 ---
 
-## ✅ Conclusion
+##  Conclusion
 
-💡 This project helps understand performance differences between Prim’s and Kruskal’s MST algorithms using real test cases and dynamic results.
+ This project helps understand performance differences between Prim’s and Kruskal’s MST algorithms using real test cases and dynamic results.
 
-📄 For final evaluation and discussion, refer to `report.md`.
+ For final evaluation and discussion, refer to `report.md`.
 
 ---
